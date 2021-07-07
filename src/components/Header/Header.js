@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/no-redundant-roles */
 import React from 'react';
 import Accessibility from '../Accessibility/Accessibility';
+import HeaderNavbar from '../Navbar/HeaderNavbar';
 
 export default function Header({ theme, toggleEvent }) {
   return (
@@ -9,6 +11,7 @@ export default function Header({ theme, toggleEvent }) {
         theme={theme}
         toggleEvent={toggleEvent}
       />
+      <HeaderNavbar />
     </header>
   );
 }

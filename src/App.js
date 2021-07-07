@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
+import Home from './components/Pages/Home';
+import Cart from './components/Pages/Cart';
+import Shop from './components/Pages/Shop';
 import githubDark from './assets/images/logos/GitHub-White-Mark-32px.png';
 import githubLight from './assets/images/logos/GitHub-Black-Mark-32px.png';
 
@@ -7,7 +11,7 @@ export default function App() {
   const [theme, setTheme] = useState('dark');
 
   // Initialize theme from local storage or set theme in local storage
-  // when component mounts
+  // when app mounts
   useEffect(() => {
     let savedTheme = localStorage.getItem('theme');
 
@@ -35,14 +39,19 @@ export default function App() {
   const githubLogo = theme === 'light' ? githubLight : githubDark;
 
   return (
-    <>
+    <Router>
       <Header theme={theme} toggleEvent={handleThemeToggle} />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/shop' component={Shop} />
+        <Route exact path='/cart' component={Cart} />
+      </Switch>
       <footer>
         <a href='https://github.com/thatblindgeye' className='link'>
-          <img src={githubLogo} alt='' className='image-link' />
+          <img src={githubLogo} alt='' className='github-link' />
           @thatblindgeye on GitHub
         </a>
       </footer>
-    </>
+    </Router>
   );
 }
