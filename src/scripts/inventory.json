@@ -1,0 +1,19 @@
+{
+  "clothing": [
+    {
+      "id": 0,
+      "name": "T-Shirt",
+      "description": "Short sleeve."
+    },
+    {
+      "id": 1,
+      "name": "Sweater",
+      "description": "Comfy."
+    },
+    {
+      "id": 2,
+      "name": "Pants",
+      "description": "Denim."
+    }
+  ]
+}

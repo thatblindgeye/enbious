@@ -19,8 +19,8 @@ export default function HeaderNavbar() {
         </li>
         <li>
           <Link to='/cart' className='link' aria-label='Cart'>
-            <CartIcon class='cart-icon' />
-            <span class='current-cart-amount'>0</span>
+            <CartIcon className='cart-icon' />
+            <span className='current-cart-amount'>0</span>
           </Link>
         </li>
       </ul>
