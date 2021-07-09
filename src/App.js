@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Header from './components/Header/Header';
+import React, { useState, useEffect, useReducer } from 'react';
+import Accessibility from './components/Accessibility/Accessibility';
+import HeaderNavbar from './components/Navbar/HeaderNavbar';
 import Router from './components/Router/Router';
 import Footer from './components/Footer/Footer';
 
 export default function App() {
   const [theme, setTheme] = useState('dark');
+  const [cartItems, setCartItems] = useState([]);
 
   // Initialize theme from local storage or set theme in local storage
-  // when app mounts
+  // when App mounts
   useEffect(() => {
     let savedTheme = localStorage.getItem('theme');
 
@@ -34,10 +35,13 @@ export default function App() {
   };
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Header theme={theme} toggleEvent={handleThemeToggle} />
-      <Router />
-      <Footer theme={theme} />
-    </BrowserRouter>
+    <>
+      <header>
+        <Accessibility siteTheme={theme} toggleEvent={handleThemeToggle} />
+        <HeaderNavbar cartItems={cartItems} />
+      </header>
+      <Router cartItems={cartItems} />
+      <Footer siteTheme={theme} />
+    </>
   );
 }

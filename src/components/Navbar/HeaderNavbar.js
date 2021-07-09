@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as CartIcon } from '../../assets/images/icons/cart.svg';
 
-export default function HeaderNavbar() {
+export default function HeaderNavbar({ cartItems }) {
   return (
     <nav className='header-nav' aria-label='main navigation'>
       <ul role='list'>
@@ -18,9 +18,9 @@ export default function HeaderNavbar() {
           </Link>
         </li>
         <li>
-          <Link to='/cart' className='link' aria-label='Cart'>
+          <Link to='/cart' className='link' aria-label='Shopping cart'>
             <CartIcon className='cart-icon' />
-            <span className='current-cart-amount'>0</span>
+            <span className='current-cart-amount'>{cartItems.length}</span>
           </Link>
         </li>
       </ul>
