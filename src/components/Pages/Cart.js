@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartDataContext } from '../../context/CartDataContext';
 
-export default function Cart({ cartItems }) {
+export default function Cart() {
+  const [cartItems] = useContext(CartDataContext);
+
   useEffect(() => {
-    document.title = 'Your Cart | Enbious';
+    document.title = 'Shopping Cart | Enbious';
   }, []);
 
   return cartItems.length ? (

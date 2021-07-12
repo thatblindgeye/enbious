@@ -8,6 +8,9 @@ export default function Shop() {
 
   useEffect(() => {
     document.title = 'Shop | Enbious';
+  }, []);
+
+  useEffect(() => {
     setItems(inventory.clothing);
   }, []);
 

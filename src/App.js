@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect } from 'react';
+import { CartDataContextProvider } from './context/CartDataContext';
 import Accessibility from './components/Accessibility/Accessibility';
 import HeaderNavbar from './components/Navbar/HeaderNavbar';
 import Router from './components/Router/Router';
@@ -6,7 +7,6 @@ import Footer from './components/Footer/Footer';
 
 export default function App() {
   const [theme, setTheme] = useState('dark');
-  const [cartItems, setCartItems] = useState([]);
 
   // Initialize theme from local storage or set theme in local storage
   // when App mounts
@@ -35,13 +35,13 @@ export default function App() {
   };
 
   return (
-    <>
+    <CartDataContextProvider>
       <header>
         <Accessibility siteTheme={theme} toggleEvent={handleThemeToggle} />
-        <HeaderNavbar cartItems={cartItems} />
+        <HeaderNavbar />
       </header>
-      <Router cartItems={cartItems} />
+      <Router />
       <Footer siteTheme={theme} />
-    </>
+    </CartDataContextProvider>
   );
 }

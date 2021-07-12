@@ -1,9 +1,12 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as CartIcon } from '../../assets/images/icons/cart.svg';
+import { CartDataContext } from '../../context/CartDataContext';
 
-export default function HeaderNavbar({ cartItems }) {
+export default function HeaderNavbar() {
+  const [cartItems] = useContext(CartDataContext);
+
   return (
     <nav className='header-nav' aria-label='main navigation'>
       <ul role='list'>

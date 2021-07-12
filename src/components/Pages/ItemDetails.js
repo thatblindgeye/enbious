@@ -8,12 +8,12 @@ export default function ItemDetails() {
   const params = useParams();
 
   useEffect(() => {
-    setItem(inventory.clothing[params.itemId]);
-  }, [params]);
-
-  useEffect(() => {
     document.title = item ? `${item.name} | Enbious` : 'Enbious';
   }, [item]);
+
+  useEffect(() => {
+    setItem(inventory.clothing[params.itemId]);
+  }, [params]);
 
   return item ? <div>{item.description}</div> : <NoMatch />;
 }
