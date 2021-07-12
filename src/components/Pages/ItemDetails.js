@@ -5,6 +5,7 @@ import inventory from '../../scripts/inventory.json';
 
 export default function ItemDetails() {
   const [item, setItem] = useState({});
+  const [quantity, setQuantity] = useState(1);
   const params = useParams();
 
   useEffect(() => {
@@ -15,5 +16,12 @@ export default function ItemDetails() {
     setItem(inventory.clothing[params.itemId]);
   }, [params]);
 
-  return item ? <div>{item.description}</div> : <NoMatch />;
+  return item ? (
+    <div>
+      <h1>{item.name}</h1>
+      {item.description}
+    </div>
+  ) : (
+    <NoMatch />
+  );
 }
