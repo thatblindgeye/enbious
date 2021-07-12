@@ -12,7 +12,7 @@ function searchForItemIndex(dataToSearch, itemId) {
 
 const cartReducer = (state, action) => {
   const { payload, type } = action;
-  const itemInCart = searchForItemIndex(state, action.payload.id);
+  const itemInCart = searchForItemIndex(state, payload.id);
 
   switch (type) {
     case 'ADD_ITEM':
@@ -27,9 +27,8 @@ const cartReducer = (state, action) => {
         });
 
         return [...cartAfterQuantityAdd];
-      } else {
-        return [...state, payload];
       }
+      return [...state, payload];
     case 'UPDATE_QUANTITY':
       return [...state, payload];
     case 'REMOVE_FROM_CART':

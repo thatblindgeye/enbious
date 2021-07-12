@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import inventory from '../../scripts/inventory.json';
+import inventory from '../../inventory.json';
 
 export default function Shop() {
   const [items, setItems] = useState([]);
