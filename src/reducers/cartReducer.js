@@ -1,8 +1,8 @@
-function searchForItemIndex(dataToSearch, itemId) {
-  let itemIndex;
+function searchForItem(cartData, idData) {
+  let itemIndex = undefined;
 
-  dataToSearch.forEach((item, index) => {
-    if (item.id === itemId) {
+  cartData.forEach((item, index) => {
+    if (item.id === idData) {
       itemIndex = index;
     }
   });
@@ -12,12 +12,12 @@ function searchForItemIndex(dataToSearch, itemId) {
 
 const cartReducer = (state, action) => {
   const { payload, type } = action;
-  const itemInCart = searchForItemIndex(state, payload.id);
+  const cartItemIndex = searchForItem(state, payload.id);
 
   switch (type) {
     case 'ADD_ITEM':
-      if (itemInCart >= 0) {
-        const newQuantity = state[itemInCart].quantity + payload.quantity;
+      if (cartItemIndex >= 0) {
+        const newQuantity = state[cartItemIndex].quantity + payload.quantity;
 
         const cartAfterQuantityAdd = state.map((item) => {
           if (item.id === payload.id) {
@@ -25,9 +25,9 @@ const cartReducer = (state, action) => {
           }
           return item;
         });
-
         return [...cartAfterQuantityAdd];
       }
+
       return [...state, payload];
     case 'UPDATE_QUANTITY':
       return [...state, payload];

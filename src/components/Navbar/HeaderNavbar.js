@@ -3,9 +3,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as CartIcon } from '../../assets/images/icons/cart.svg';
 import { CartDataContext } from '../../context/CartDataContext';
+import { sumQuantities } from '../../scripts/utilities';
 
 export default function HeaderNavbar() {
   const [cartItems] = useContext(CartDataContext);
+  const totalCartItems = sumQuantities(cartItems);
 
   return (
     <nav className='header-nav' aria-label='main navigation'>
@@ -23,7 +25,7 @@ export default function HeaderNavbar() {
         <li>
           <Link to='/cart' className='link' aria-label='Shopping cart'>
             <CartIcon className='cart-icon' />
-            <span className='current-cart-amount'>{cartItems.length}</span>
+            <span className='current-cart-amount'>{totalCartItems}</span>
           </Link>
         </li>
       </ul>
