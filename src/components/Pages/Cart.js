@@ -3,7 +3,7 @@ import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartDataContext } from '../../context/CartDataContext';
 import { sumCartCosts, sumItemCost } from '../../scripts/utilities';
-import QuantitySelect from '../Inputs/QuantitySelect';
+import CartItem from '../Cards/CartCard';
 
 export default function Cart() {
     const [cartItems, dispatch] = useContext(CartDataContext);
@@ -39,27 +39,22 @@ export default function Cart() {
                     <ul role='list' aria-label='Shopping cart'>
                         {cartItems.map((cartItem, cartIndex) => {
                             const itemCost = sumItemCost(cartItem);
+                            const { name, quantity, stock } = cartItem;
 
                             return (
                                 <li key={cartIndex}>
-                                    <div>{cartItem.name}</div>
-                                    <div>{cartItem.quantity}</div>
-                                    <QuantitySelect
+                                    <CartItem
+                                        name={name}
+                                        quantity={quantity}
+                                        stock={stock}
+                                        itemCost={itemCost}
                                         changeEvent={(e) => {
                                             handleUpdateItem(e, cartIndex);
                                         }}
-                                        inputId='quantity'
-                                        stock={cartItem.stock}
-                                        quantity={cartItem.quantity}
-                                    />
-                                    <div>${itemCost}</div>
-                                    <button
-                                        onClick={() => {
+                                        removeEvent={() => {
                                             handleRemoveItem(cartIndex);
                                         }}
-                                    >
-                                        Delete
-                                    </button>
+                                    />
                                 </li>
                             );
                         })}
