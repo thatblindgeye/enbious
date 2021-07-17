@@ -12,10 +12,11 @@ function searchForItem(cartData, idData) {
 
 const cartReducer = (state, action) => {
     const { payload, type } = action;
-    const cartItemIndex = searchForItem(state, payload.id);
 
     switch (type) {
         case 'ADD_ITEM':
+            const cartItemIndex = searchForItem(state, payload.id);
+
             if (cartItemIndex >= 0) {
                 const newQuantity =
                     state[cartItemIndex].quantity + payload.quantity;
@@ -47,6 +48,8 @@ const cartReducer = (state, action) => {
             });
 
             return [...cartAfterRemoval];
+        case 'CLEAR_CART':
+            return [];
         default: {
             console.log('error');
         }

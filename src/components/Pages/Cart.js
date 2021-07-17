@@ -1,65 +1,42 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CartDataContext } from '../../context/CartDataContext';
-import { sumCartCosts, sumItemCost } from '../../scripts/utilities';
+import { sumCartCosts } from '../../scripts/utilities';
 import CartItem from '../Cards/CartCard';
 
 export default function Cart() {
     const [cartItems, dispatch] = useContext(CartDataContext);
+    const [isCheckedOut, setIsCheckedOut] = useState(false);
     const totalCost = sumCartCosts(cartItems);
 
     useEffect(() => {
         document.title = 'Shopping Cart | Enbious';
     }, []);
 
-    const handleUpdateItem = (e, index) => {
+    const checkoutCart = () => {
+        setIsCheckedOut(true);
+
         return dispatch({
-            type: 'UPDATE_QUANTITY',
-            payload: {
-                ...cartItems[index],
-                quantity: Number(e.target.value),
-            },
+            type: 'CLEAR_CART',
         });
     };
 
-    const handleRemoveItem = (index) => {
-        return dispatch({
-            type: 'REMOVE_FROM_CART',
-            payload: {
-                ...cartItems[index],
-            },
-        });
-    };
-
-    return (
+    return !isCheckedOut ? (
         <div>
             {cartItems.length ? (
                 <div>
                     <ul role='list' aria-label='Shopping cart'>
                         {cartItems.map((cartItem, cartIndex) => {
-                            const itemCost = sumItemCost(cartItem);
-                            const { name, quantity, stock } = cartItem;
-
                             return (
                                 <li key={cartIndex}>
-                                    <CartItem
-                                        name={name}
-                                        quantity={quantity}
-                                        stock={stock}
-                                        itemCost={itemCost}
-                                        changeEvent={(e) => {
-                                            handleUpdateItem(e, cartIndex);
-                                        }}
-                                        removeEvent={() => {
-                                            handleRemoveItem(cartIndex);
-                                        }}
-                                    />
+                                    <CartItem cartItem={cartItem} />
                                 </li>
                             );
                         })}
                     </ul>
                     <div>Total: ${totalCost}</div>
+                    <button onClick={checkoutCart}>Place Order</button>
                 </div>
             ) : (
                 <div>
@@ -68,5 +45,7 @@ export default function Cart() {
                 </div>
             )}
         </div>
+    ) : (
+        <div>Your order has been placed!</div>
     );
 }

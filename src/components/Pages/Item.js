@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { CartDataContext } from '../../context/CartDataContext';
-import QuantitySelect from '../Inputs/QuantitySelect';
+import Quantity from '../Inputs/Quantity';
 import NoMatch from './NoMatch';
 import inventory from '../../inventory.json';
 
 export default function Item() {
+    const params = useParams();
     const [item, setItem] = useState({});
     const [quantity, setQuantity] = useState(1);
     const [addedToCart, setAddedToCart] = useState(false);
     const [, dispatch] = useContext(CartDataContext);
-    const params = useParams();
 
     useEffect(() => {
         document.title = item ? `${item.name} | Enbious` : 'Enbious';
@@ -36,6 +36,20 @@ export default function Item() {
         setQuantity(Number(e.target.value));
     };
 
+    const handleQuantityIncrement = (e) => {
+        if (quantity === item.stock) return;
+        setQuantity((prevState) => {
+            return prevState + 1;
+        });
+    };
+
+    const handleQuantityDecrement = (e) => {
+        if (quantity === 1) return;
+        setQuantity((prevState) => {
+            return prevState - 1;
+        });
+    };
+
     const handleCartAdd = () => {
         setAddedToCart(true);
         return dispatch({
@@ -51,10 +65,11 @@ export default function Item() {
         <div className='item-details-container'>
             <h1>{item.name}</h1>
             <div className='item-description'>{item.description}</div>
-            <label htmlFor='quantity'>Quantity</label>
-            <QuantitySelect
+            <Quantity
+                decrementEvent={handleQuantityDecrement}
                 changeEvent={handleQuantityChange}
-                inputId='quantity'
+                incrementEvent={handleQuantityIncrement}
+                inputId={item.id}
                 stock={item.stock}
                 quantity={quantity}
             />
