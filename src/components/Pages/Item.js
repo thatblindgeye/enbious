@@ -20,11 +20,24 @@ export default function Item() {
         setItem(inventory.clothing[params.itemId]);
     }, [params]);
 
+    useEffect(() => {
+        const addedDialog = setTimeout(() => {
+            if (addedToCart) {
+                setAddedToCart(false);
+            }
+        }, 5000);
+
+        return () => {
+            clearTimeout(addedDialog);
+        };
+    }, [addedToCart]);
+
     const handleQuantityChange = (e) => {
         setQuantity(Number(e.target.value));
     };
 
     const handleCartAdd = () => {
+        setAddedToCart(true);
         return dispatch({
             type: 'ADD_ITEM',
             payload: {
@@ -48,7 +61,9 @@ export default function Item() {
             <button className='add-cart-btn' onClick={handleCartAdd}>
                 Add to Cart
             </button>
-            {addedToCart ? <div>Added!</div> : null}
+            {addedToCart ? (
+                <div className='added-dialog'>Added {item.name} to Cart</div>
+            ) : null}
         </div>
     ) : (
         <NoMatch />
