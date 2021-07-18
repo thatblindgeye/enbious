@@ -12,3 +12,9 @@ body {
         font-size: 5rem;
     }
 }
+
+.nav-link {
+    @include breakpoint-at-least(medium) {
+        font-size: 1.5rem;
+    }
+}

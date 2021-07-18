@@ -81,14 +81,12 @@
 
 .shop-link {
     justify-self: end;
-    margin-right: 20px;
-    width: max-content;
+    max-width: max-content;
 }
 
 .cart-link {
     display: flex;
     align-items: center;
-    flex-direction: column;
-    justify-self: center;
+    // flex-direction: column;
     max-width: max-content;
 }

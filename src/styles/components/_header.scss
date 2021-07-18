@@ -2,7 +2,7 @@
 
 header {
     background-color: var(--color-bg-header);
-    padding: 10px;
+    padding: 20px 10px;
 }
 
 .accessibility-container {
@@ -10,7 +10,12 @@ header {
 }
 
 .cart-icon {
-    --base-size: 1.5rem;
+    --base-size: 1rem;
     height: var(--base-size);
+    margin-right: 5px;
     width: var(--base-size);
+
+    @include breakpoint-at-least(medium) {
+        --base-size: 2rem;
+    }
 }
