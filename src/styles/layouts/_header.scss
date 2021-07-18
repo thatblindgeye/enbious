@@ -1,5 +1,15 @@
 @use '../abstracts/mixins' as *;
 
+.accessibility-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include breakpoint-at-least(medium) {
+        justify-content: flex-start;
+    }
+}
+
 .header-nav {
     display: grid;
     align-items: center;

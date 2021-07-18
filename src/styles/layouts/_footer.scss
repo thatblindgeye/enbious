@@ -1,0 +1,20 @@
+@use '../abstracts/' as *;
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.upper-footer-nav {
+    margin: auto;
+}
+
+.lower-footer-nav {
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint-at-least(medium) {
+        justify-content: flex-end;
+    }
+}
