@@ -7,22 +7,7 @@ header {
 
 .accessibility-container {
     background-color: var(--color-bg-accessibility-bar);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    @include breakpoint-at-least(medium) {
-        justify-content: flex-start;
-    }
 }
-
-// .header-navlist {
-//     justify-content: flex-end;
-
-//     li {
-//         margin: 0 10px;
-//     }
-// }
 
 .cart-icon {
     --base-size: 1.5rem;
