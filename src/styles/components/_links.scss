@@ -49,10 +49,11 @@
 }
 
 .logo-link {
+    @include wrap-long-words;
     color: var(--color-text-logo);
     padding-right: 15px;
     text-decoration: none;
-    width: max-content;
+    max-width: max-content;
 
     &:focus {
         outline: 1px dotted var(--color-text-logo);
@@ -80,5 +81,5 @@
     align-items: center;
     flex-direction: column;
     justify-self: center;
-    width: max-content;
+    max-width: max-content;
 }
