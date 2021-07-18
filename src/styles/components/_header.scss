@@ -10,17 +10,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
 
-.header-nav {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 2fr 1fr 20%;
-    grid-template-rows: 1fr;
-    margin-top: 20px;
-
-    @include breakpoint-at-least(700px) {
-        grid-template-columns: 1fr 5rem 5rem;
+    @include breakpoint-at-least(medium) {
+        justify-content: flex-start;
     }
 }
 

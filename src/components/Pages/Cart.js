@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import React, { useEffect, useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { CartDataContext } from '../../context/CartDataContext';
 import { sumCartCosts } from '../../scripts/utilities';
 import CartItem from '../Cards/CartCard';
@@ -40,8 +39,7 @@ export default function Cart() {
                 </div>
             ) : (
                 <div>
-                    Your cart is empty.
-                    <Link to='/shop'>Continue shopping.</Link>
+                    <div className='empty-cart-msg'>Your cart is empty.</div>
                 </div>
             )}
         </div>

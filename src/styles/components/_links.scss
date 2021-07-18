@@ -19,12 +19,14 @@
 }
 
 .skip-link {
-    @extend .link;
+    color: var(--color-text-primary);
     border-bottom: 1px solid transparent;
+    margin-right: 25px;
+    text-decoration: none;
 
     &:hover,
     &:focus {
-        border-bottom: 1px solid var(--color-border-primary);
+        border-bottom: 1px dotted var(--color-border-primary);
     }
 }
 
@@ -44,7 +46,6 @@
 
     &:focus {
         outline: 1px dotted var(--color-text-primary);
-        outline-offset: 5px;
     }
 }
 
