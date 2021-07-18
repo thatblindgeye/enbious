@@ -6,29 +6,26 @@ import { CartDataContext } from '../../context/CartDataContext';
 import { sumQuantities } from '../../scripts/utilities';
 
 export default function HeaderNavbar() {
-  const [cartItems] = useContext(CartDataContext);
-  const totalCartItems = sumQuantities(cartItems);
+    const [cartItems] = useContext(CartDataContext);
+    const totalCartItems = sumQuantities(cartItems);
 
-  return (
-    <nav className='header-nav' aria-label='main navigation'>
-      <ul role='list'>
-        <li>
-          <Link to='/' className='link'>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to='/shop' className='link'>
-            Shop
-          </Link>
-        </li>
-        <li>
-          <Link to='/cart' className='link' aria-label='Shopping cart'>
-            <CartIcon className='cart-icon' />
-            <span className='current-cart-amount'>{totalCartItems}</span>
-          </Link>
-        </li>
-      </ul>
-    </nav>
-  );
+    return (
+        <nav className='header-nav' aria-label='main navigation'>
+            <Link to='/' className='logo-link'>
+                Enbious
+            </Link>
+            <Link to='/shop' className='nav-link shop-link'>
+                Shop
+            </Link>
+
+            <Link
+                to='/cart'
+                className='nav-link cart-link'
+                aria-label='Shopping cart'
+            >
+                <CartIcon className='cart-icon' />
+                <span className='current-cart-amount'>{totalCartItems}</span>
+            </Link>
+        </nav>
+    );
 }

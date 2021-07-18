@@ -2,21 +2,26 @@
 @use '../utilities/theme-utilities' as *;
 
 :root {
-  @include generate-theme-variables;
+    @include generate-theme-variables;
 }
 
 html {
-  scroll-behavior: auto;
+    scroll-behavior: auto;
 }
 
 body {
-  background-color: var(--color-bg-base);
-  color: var(--color-text-primary);
-  min-height: 100vh;
+    background-color: var(--color-bg-base);
+    color: var(--color-text-primary);
+    min-height: 100vh;
 }
 
 main {
-  min-height: 100vh;
+    min-height: 100vh;
+    padding: 25px;
+
+    @include breakpoint-at-least(large) {
+        padding: 25px 10vw;
+    }
 }
 
 /**
@@ -24,9 +29,9 @@ main {
   * (MANUALLY ADD FOCUS STYLES)
   */
 * {
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+        outline: none;
+    }
 }
 
 h1,
@@ -35,13 +40,13 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
+    margin: 0;
 }
 
 %clickable {
-  &:hover {
-    cursor: pointer;
-  }
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 /**
@@ -54,14 +59,14 @@ label,
 [role='checkbox'],
 [role='switch'],
 [type='date'] {
-  @extend %clickable;
+    @extend %clickable;
 }
 
 input[aria-disabled='true'],
 input:disabled {
-  opacity: $disabled;
+    opacity: $disabled;
 
-  &:hover {
-    cursor: not-allowed;
-  }
+    &:hover {
+        cursor: not-allowed;
+    }
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { CartDataContext } from '../../context/CartDataContext';
 import Quantity from '../Inputs/Quantity';
 import { sumItemCost } from '../../scripts/utilities';

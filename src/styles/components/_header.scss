@@ -1,11 +1,39 @@
+@use '../abstracts/mixins' as *;
+
 header {
-  background-color: var(--color-bg-header);
-  padding: 10px;
+    background-color: var(--color-bg-header);
+    padding: 10px;
 }
 
 .accessibility-container {
-  background-color: var(--color-bg-accessibility-bar);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    background-color: var(--color-bg-accessibility-bar);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-nav {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 2fr 1fr 15%;
+    grid-template-rows: 1fr;
+    margin-top: 20px;
+
+    @include breakpoint-at-least(700px) {
+        grid-template-columns: 1fr 5rem 5rem;
+    }
+}
+
+// .header-navlist {
+//     justify-content: flex-end;
+
+//     li {
+//         margin: 0 10px;
+//     }
+// }
+
+.cart-icon {
+    --base-size: 1.5rem;
+    height: var(--base-size);
+    width: var(--base-size);
 }

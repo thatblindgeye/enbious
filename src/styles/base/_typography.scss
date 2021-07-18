@@ -1,5 +1,14 @@
-@use '../abstracts/variables' as *;
+@use '../abstracts' as *;
 
 body {
-  font-family: $base-fonts;
+    font-family: $base-fonts;
+}
+
+.logo-link {
+    font-family: $brand-fonts;
+    font-size: 3rem;
+
+    @include breakpoint-at-least(medium) {
+        font-size: 5rem;
+    }
 }
