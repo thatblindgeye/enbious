@@ -5,12 +5,16 @@ import githubLight from '../../assets/images/logos/GitHub-Black-Mark-32px.png';
 export default function Footer({ siteTheme }) {
     const githubLogo = siteTheme === 'light' ? githubLight : githubDark;
 
+    const handleClick = () => {
+        window.scrollTo(0, 0);
+    };
+
     return (
         <footer>
             <div className='upper-footer-nav'>
-                <a href='#' className='link'>
+                <button className='button-text' onClick={handleClick}>
                     Back to Top
-                </a>
+                </button>
             </div>
             <div className='lower-footer-nav'>
                 <a
