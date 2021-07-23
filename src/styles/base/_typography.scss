@@ -23,11 +23,6 @@ body {
     }
 }
 
-.image-unavailable {
-    font-size: clamp(0.75rem, 5vw, 1.125rem);
-    text-align: center;
-}
-
 .item-link {
     @include breakpoint-at-least(x-large) {
         font-size: 1.5rem;

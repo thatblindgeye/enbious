@@ -1,0 +1,14 @@
+.item-details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-images {
+    max-width: 100%;
+}
+
+.item-main-image {
+    height: auto;
+    max-width: 400px;
+    width: 100%;
+}

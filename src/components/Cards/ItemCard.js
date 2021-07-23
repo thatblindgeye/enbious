@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ItemICardmage from './ItemICardmage';
 
 const StockWarning = ({ stock, id }) => {
     return (
@@ -25,7 +24,15 @@ export default function ItemCard({ item }) {
                     aria-hidden='true'
                     tabIndex='-1'
                 >
-                    <ItemICardmage image={image} />
+                    <img
+                        className='preview-image'
+                        src={
+                            image
+                                ? image
+                                : `${process.env.PUBLIC_URL}/public-assets/inventory-images/unavailable.png`
+                        }
+                        alt=''
+                    />
                 </Link>
             </div>
             <div className='secondary-preview-container'>
