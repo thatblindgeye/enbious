@@ -16,6 +16,10 @@ header {
     width: var(--base-size);
 
     @include breakpoint-at-least(medium) {
+        --base-size: 1.5rem;
+    }
+
+    @include breakpoint-at-least(large) {
         --base-size: 2rem;
     }
 }

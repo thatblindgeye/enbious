@@ -1,0 +1,30 @@
+@use '../abstracts/' as *;
+
+.primary-preview-container {
+    height: min(100vw, 175px);
+    margin-bottom: 10px;
+    width: min(100vw, 175px);
+
+    @include breakpoint-at-least(large) {
+        height: 200px;
+        width: 200px;
+    }
+
+    @include breakpoint-at-least(x-large) {
+        height: 250px;
+        width: 250px;
+    }
+}
+
+.preview-image {
+    height: 100%;
+}
+
+.image-unavailable {
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

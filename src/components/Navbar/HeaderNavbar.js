@@ -14,18 +14,23 @@ export default function HeaderNavbar() {
             <Link to='/' className='logo-link'>
                 Enbious
             </Link>
-            <Link to='/shop' className='nav-link shop-link'>
-                Shop
-            </Link>
-
-            <Link
-                to='/cart'
-                className='nav-link cart-link'
-                aria-label='Shopping cart'
-            >
-                <CartIcon className='cart-icon' />
-                <span className='current-cart-amount'>{totalCartItems}</span>
-            </Link>
+            <div className='header-nav-right'>
+                <Link to='/shop' className='nav-link shop-link'>
+                    Shop
+                </Link>
+                <div className='cart-button-container'>
+                    <Link
+                        to='/cart'
+                        className='nav-link cart-link'
+                        aria-label='Shopping cart'
+                    >
+                        <CartIcon className='cart-icon' />
+                        <span className='current-cart-amount'>
+                            {totalCartItems}
+                        </span>
+                    </Link>
+                </div>
+            </div>
         </nav>
     );
 }

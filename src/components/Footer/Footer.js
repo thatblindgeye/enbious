@@ -2,17 +2,21 @@ import React from 'react';
 import githubDark from '../../assets/images/logos/GitHub-White-Mark-32px.png';
 import githubLight from '../../assets/images/logos/GitHub-Black-Mark-32px.png';
 
-export default function Footer({ siteTheme }) {
+export default function Footer({ siteTheme, topRef }) {
     const githubLogo = siteTheme === 'light' ? githubLight : githubDark;
 
-    const handleClick = () => {
-        window.scrollTo(0, 0);
+    const handleScrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+        });
+
+        topRef.current.focus();
     };
 
     return (
         <footer>
             <div className='upper-footer-nav'>
-                <button className='button-text' onClick={handleClick}>
+                <button className='button-text' onClick={handleScrollToTop}>
                     Back to Top
                 </button>
             </div>

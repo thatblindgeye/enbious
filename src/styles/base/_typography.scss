@@ -6,17 +6,11 @@ body {
 
 .logo-link {
     font-family: $brand-fonts;
-    font-size: 3rem;
-
-    @include breakpoint-at-least(medium) {
-        font-size: 5rem;
-    }
+    font-size: clamp(1rem, 10vw, 5rem);
 }
 
 .nav-link {
-    @include breakpoint-at-least(medium) {
-        font-size: 1.5rem;
-    }
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 .image-card-text {
@@ -27,4 +21,20 @@ body {
     @include breakpoint-at-least(medium) {
         font-size: 4rem;
     }
+}
+
+.image-unavailable {
+    font-size: clamp(0.75rem, 5vw, 1.125rem);
+    text-align: center;
+}
+
+.item-link {
+    @include breakpoint-at-least(x-large) {
+        font-size: 1.5rem;
+    }
+}
+
+.item-stock-warning {
+    color: var(--color-text-item-warning);
+    font-size: 0.9rem;
 }

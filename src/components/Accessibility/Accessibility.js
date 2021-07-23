@@ -2,12 +2,12 @@ import React from 'react';
 import { ReactComponent as LightThemeIcon } from '../../assets/images/icons/light_theme.svg';
 import { ReactComponent as DarkThemeIcon } from '../../assets/images/icons/dark_theme.svg';
 
-export default function Accessibility({ siteTheme, toggleEvent }) {
+export default function Accessibility({ siteTheme, toggleEvent, topRef }) {
     const iconClasses = 'theme-icon';
 
     return (
         <div className='accessibility-container'>
-            <a href='#main' className='skip-link'>
+            <a href='#main' className='skip-link' ref={topRef}>
                 Skip to Content
             </a>
             <div

@@ -4,22 +4,27 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    @include breakpoint-at-least(medium) {
-        justify-content: flex-start;
-    }
 }
 
 .header-nav {
-    display: grid;
-    align-items: center;
-    column-gap: 5px;
-    grid-template-columns: 1fr 20% 25%;
-    grid-template-rows: 1fr;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
     margin-top: 20px;
+}
 
-    @include breakpoint-at-least(500px) {
-        column-gap: 20px;
-        grid-template-columns: 1fr 5rem 6rem;
+.header-nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: clamp(150px, 25vw, 250px);
+    width: 50%;
+}
+
+.cart-button-container {
+    width: 50%;
+
+    @include breakpoint-at-least(large) {
+        width: 60%;
     }
 }

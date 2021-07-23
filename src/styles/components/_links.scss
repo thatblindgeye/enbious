@@ -71,22 +71,30 @@
 
 .shop-link,
 .cart-link {
+    display: flex;
     padding: 10px;
     transition: background-color linear 200ms;
+    width: max-content;
 
     &:hover {
         background-color: var(--color-bg-nav-hover);
     }
 }
 
-.shop-link {
-    justify-self: end;
-    max-width: max-content;
-}
-
 .cart-link {
     display: flex;
     align-items: center;
-    // flex-direction: column;
-    max-width: max-content;
+}
+
+.item-link {
+    color: var(--color-text-primary);
+
+    &:focus {
+        outline: 1px dotted var(--color-border-primary);
+        outline-offset: 2px;
+    }
+
+    &:hover {
+        color: var(--color-link-hover);
+    }
 }

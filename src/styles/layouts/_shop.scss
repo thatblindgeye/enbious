@@ -1,0 +1,21 @@
+@use '../abstracts/' as *;
+
+.items-container {
+    display: grid;
+    gap: 50px 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+
+    @include breakpoint-at-least(small) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint-at-least(medium) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint-at-least(100em) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

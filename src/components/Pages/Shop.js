@@ -15,7 +15,7 @@ export default function Shop() {
     }, []);
 
     return (
-        <div>
+        <div className='items-container'>
             {items.map((item) => (
                 <ItemCard key={item.id} item={item} />
             ))}

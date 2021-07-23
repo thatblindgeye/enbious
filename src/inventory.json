@@ -1,28 +1,44 @@
 {
-  "clothing": [
-    {
-      "id": 0,
-      "name": "T-Shirt",
-      "description": "Short sleeve.",
-      "image": null,
-      "price": 19.99,
-      "stock": 7
-    },
-    {
-      "id": 1,
-      "name": "Sweater",
-      "description": "Comfy.",
-      "image": null,
-      "price": 19.99,
-      "stock": 2
-    },
-    {
-      "id": 2,
-      "name": "Pants",
-      "description": "Denim.",
-      "image": null,
-      "price": 19.99,
-      "stock": 100
-    }
-  ]
+    "clothing": [
+        {
+            "id": 0,
+            "name": "T-Shirt",
+            "description": "Short sleeve.",
+            "image": null,
+            "price": 19.99,
+            "stock": 7
+        },
+        {
+            "id": 1,
+            "name": "Sweater",
+            "description": "Comfy.",
+            "image": null,
+            "price": 19.99,
+            "stock": 0
+        },
+        {
+            "id": 2,
+            "name": "Pants",
+            "description": "Denim.",
+            "image": null,
+            "price": 19.99,
+            "stock": 100
+        },
+        {
+            "id": 3,
+            "name": "Shoes",
+            "description": "For walking.",
+            "image": null,
+            "price": 19.99,
+            "stock": 100
+        },
+        {
+            "id": 4,
+            "name": "Socks",
+            "description": "Well that socks.",
+            "image": null,
+            "price": 19.99,
+            "stock": 100
+        }
+    ]
 }
