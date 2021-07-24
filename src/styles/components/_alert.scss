@@ -1,9 +1,9 @@
 .cart-add-alert {
     position: fixed;
-    bottom: 24px;
+    top: 24px;
     left: 50%;
     transform: translateX(-50%);
-    width: min(100%, 300px);
+    width: min(90%, 500px);
     background: red;
     padding: 10px;
     z-index: 2;

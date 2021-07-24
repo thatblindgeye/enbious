@@ -13,7 +13,7 @@ export default function Cart() {
         document.title = 'Shopping Cart | Enbious';
     }, []);
 
-    const checkoutCart = () => {
+    const handleCheckOut = () => {
         setIsCheckedOut(true);
 
         return dispatch({
@@ -22,28 +22,41 @@ export default function Cart() {
     };
 
     return !isCheckedOut ? (
-        <div>
-            {cartItems.length ? (
-                <div>
-                    <ul role='list' aria-label='Shopping cart'>
-                        {cartItems.map((cartItem, cartIndex) => {
-                            return (
-                                <li key={cartIndex}>
-                                    <CartCard cartItem={cartItem} />
-                                </li>
-                            );
-                        })}
-                    </ul>
-                    <div>Total: ${totalCost}</div>
-                    <button onClick={checkoutCart}>Place Order</button>
-                </div>
-            ) : (
-                <div>
-                    <div className='empty-cart-msg'>Your cart is empty.</div>
-                </div>
-            )}
-        </div>
+        <>
+            <h1>Shopping Cart</h1>
+            <div>
+                {cartItems.length ? (
+                    <div className='cart-container'>
+                        <ul role='list' aria-label='Shopping cart'>
+                            {cartItems.map((cartItem, cartIndex) => {
+                                return (
+                                    <li className='cart-item' key={cartIndex}>
+                                        <CartCard cartItem={cartItem} />
+                                        <div className='cart-divider'></div>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                        <div className='checkout-container'>
+                            <div className='total-cost'>
+                                Total: ${totalCost}
+                            </div>
+                            <button
+                                className='button-contained order-button'
+                                onClick={handleCheckOut}
+                            >
+                                Place Order
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    <div>
+                        <h2 className='empty-cart-msg'>Your cart is empty.</h2>
+                    </div>
+                )}
+            </div>
+        </>
     ) : (
-        <div>Your order has been placed!</div>
+        <h1>Your order has been placed!</h1>
     );
 }

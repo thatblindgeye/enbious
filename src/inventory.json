@@ -2,8 +2,8 @@
     "clothing": [
         {
             "id": 0,
-            "name": "T-Shirt",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi. Mauris ornare mollis lacus, vitae commodo urna volutpat ac. Integer sit amet justo quis nibh mattis sodales at quis ante. In hac habitasse platea dictumst. Nunc imperdiet lacinia ante sed luctus.",
+            "name": "100% Pure Cotton T-Shirt",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget.",
             "image": null,
             "price": 19.99,
             "stock": 7
@@ -11,31 +11,39 @@
         {
             "id": 1,
             "name": "Sweater",
-            "description": "Comfy.",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi. Mauris ornare mollis lacus, vitae commodo urna volutpat ac.",
             "image": null,
             "price": 19.99,
             "stock": 0
         },
         {
             "id": 2,
-            "name": "Pants",
-            "description": "Denim.",
+            "name": "Dress",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi. Mauris ornare mollis lacus, vitae commodo urna volutpat ac.",
             "image": null,
             "price": 19.99,
             "stock": 100
         },
         {
             "id": 3,
-            "name": "Shoes",
-            "description": "For walking.",
+            "name": "Pants",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi. Mauris ornare mollis lacus.",
             "image": null,
             "price": 19.99,
             "stock": 100
         },
         {
             "id": 4,
+            "name": "Shoes",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi.",
+            "image": null,
+            "price": 19.99,
+            "stock": 100
+        },
+        {
+            "id": 5,
             "name": "Socks",
-            "description": "Well that socks.",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula.",
             "image": null,
             "price": 19.99,
             "stock": 100
