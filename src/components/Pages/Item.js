@@ -46,10 +46,15 @@ export default function Item() {
             (cartItem) => cartItem.id === item.id
         );
 
-        // Check whether amount of item in cart + quantity input exceeds stock
+        /*
+            Check whether item exists in cart
+            Then check whether quantity in cart + quantity input exceeds stock
+            Otherwise check if quantity input exceeds stock
+        */
         if (
-            itemInCart.length &&
-            itemInCart[0].quantity + quantity > itemInCart[0].stock
+            (itemInCart.length &&
+                itemInCart[0].quantity + quantity > itemInCart[0].stock) ||
+            quantity > item.stock
         ) {
             // Return false to prevent handleCartAdd() from adding to cart
             setAddedToCart({
@@ -57,15 +62,15 @@ export default function Item() {
                 message: `Unable to add ${item.name} to cart. The requested amount in addition to any in your cart exceed the ${item.stock} available.`,
             });
             return false;
-        } else {
-            setAddedToCart({
-                status: true,
-                message: `Added ${quantity} ${
-                    item.name + (quantity > 1 ? 's' : '')
-                } to cart!`,
-            });
-            return true;
         }
+
+        setAddedToCart({
+            status: true,
+            message: `Added ${quantity} ${
+                item.name + (quantity > 1 ? 's' : '')
+            } to cart!`,
+        });
+        return true;
     };
 
     const handleQuantityChange = (e) => {
