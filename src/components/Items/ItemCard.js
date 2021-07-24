@@ -30,7 +30,7 @@ export default function ItemCard({ item }) {
                 <div id={`price-${id}`} className='item-price'>
                     ${price}
                 </div>
-                {stock < 10 ? <StockWarning stock={stock} id={id} /> : null}
+                <StockWarning stock={stock} id={id} />
             </div>
         </div>
     );

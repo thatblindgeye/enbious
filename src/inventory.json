@@ -6,14 +6,14 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget.",
             "image": null,
             "price": 19.99,
-            "stock": 7
+            "stock": 17
         },
         {
             "id": 1,
             "name": "Sweater",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi. Mauris ornare mollis lacus, vitae commodo urna volutpat ac.",
             "image": null,
-            "price": 19.99,
+            "price": 29.99,
             "stock": 0
         },
         {
@@ -21,32 +21,32 @@
             "name": "Dress",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi. Mauris ornare mollis lacus, vitae commodo urna volutpat ac.",
             "image": null,
-            "price": 19.99,
-            "stock": 100
+            "price": 49.99,
+            "stock": 51
         },
         {
             "id": 3,
             "name": "Pants",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi. Mauris ornare mollis lacus.",
             "image": null,
-            "price": 19.99,
-            "stock": 100
+            "price": 39.99,
+            "stock": 92
         },
         {
             "id": 4,
             "name": "Shoes",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi.",
             "image": null,
-            "price": 19.99,
-            "stock": 100
+            "price": 29.99,
+            "stock": 169
         },
         {
             "id": 5,
             "name": "Socks",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula.",
             "image": null,
-            "price": 19.99,
-            "stock": 100
+            "price": 9.99,
+            "stock": 22
         }
     ]
 }

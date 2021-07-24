@@ -1,10 +1,5 @@
 @use '../abstracts/mixins' as *;
 
-header {
-    background-color: var(--color-bg-header);
-    padding: 20px 10px;
-}
-
 .accessibility-container {
     background-color: var(--color-bg-accessibility-bar);
 }

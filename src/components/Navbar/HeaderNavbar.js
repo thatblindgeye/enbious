@@ -11,10 +11,12 @@ export default function HeaderNavbar() {
 
     return (
         <nav className='header-nav' aria-label='main navigation'>
-            <Link to='/' className='logo-link'>
-                Enbious
-            </Link>
-            <div className='header-nav-right'>
+            <div className='site-logo'>
+                <Link to='/' className='logo-link'>
+                    Enbious
+                </Link>
+            </div>
+            <div className='link-container'>
                 <Link to='/shop' className='nav-link shop-link'>
                     Shop
                 </Link>

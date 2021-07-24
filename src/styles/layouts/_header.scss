@@ -8,23 +8,37 @@
 
 .header-nav {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 10px;
+
+    @include breakpoint-at-least(small) {
+        align-items: flex-end;
+        flex-direction: row;
+    }
 }
 
-.header-nav-right {
+.link-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: clamp(150px, 25vw, 250px);
-    width: 50%;
+    justify-content: space-evenly;
+    width: 100%;
+
+    @include breakpoint-at-least(small) {
+        align-items: flex-end;
+        justify-content: space-evenly;
+        max-width: clamp(100px, 30vw, 300px);
+        width: 50%;
+    }
 }
 
 .cart-button-container {
-    width: 50%;
+    @include breakpoint-at-least(small) {
+        width: 40%;
+    }
 
     @include breakpoint-at-least(large) {
-        width: 60%;
+        width: 50%;
     }
 }

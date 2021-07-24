@@ -15,6 +15,11 @@ body {
     min-height: 100vh;
 }
 
+header {
+    background-color: var(--color-bg-header);
+    padding: 10px 10px 20px;
+}
+
 main {
     min-height: 100vh;
     padding: 50px 25px;
@@ -26,6 +31,11 @@ main {
     @include breakpoint-at-least(150em) {
         padding: 50px 20vw;
     }
+}
+
+footer {
+    background: var(--color-bg-footer);
+    padding: 20px 10px;
 }
 
 /**
