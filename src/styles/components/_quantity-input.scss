@@ -1,0 +1,27 @@
+.quantity-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+}
+
+.quantity-label {
+    margin-bottom: 10px;
+}
+
+.inputs-container {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+}
+
+.quantity-input {
+    // margin: 0 10px;
+    width: 50%;
+}
+
+.qty-button {
+    background-color: transparent;
+    border: none;
+    width: 25%;
+}

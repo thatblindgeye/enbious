@@ -2,23 +2,25 @@ import React from 'react';
 
 export default function Quantity({
     changeEvent,
-    inputId,
+    itemId,
     quantity,
     stock,
     decrementEvent,
     incrementEvent,
 }) {
     return (
-        <div className='quantity-container'>
-            <label htmlFor={`quantity-${inputId}`}>Quantity</label>
+        <div className='inputs-container'>
             <button
+                className='qty-decrement-button qty-button'
                 onClick={decrementEvent}
                 disabled={quantity === 1 || !stock}
+                aria-label='decrease quantity'
             >
                 -
             </button>
             <input
-                id={`quantity-${inputId}`}
+                id={`quantity-${itemId}`}
+                className='quantity-input'
                 type='number'
                 min='1'
                 max={stock}
@@ -27,8 +29,10 @@ export default function Quantity({
                 disabled={!stock}
             />
             <button
+                className='qty-increment-button qty-button'
                 onClick={incrementEvent}
                 disabled={quantity === stock || !stock}
+                aria-label='increase quantity'
             >
                 +
             </button>
