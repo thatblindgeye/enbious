@@ -1,17 +1,25 @@
 @use '../abstracts/' as *;
 
-.item-details-container {
+.item-container {
     display: grid;
     gap: 20px 0;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, auto);
-    grid-template-areas: 'images' 'add-cart' 'description';
+    grid-template-areas: 'images' 'details' 'add-cart';
 
     @include breakpoint-at-least(medium) {
         gap: 0 50px;
         grid-template-columns: max-content 1fr;
         grid-template-rows: repeat(2, auto);
-        grid-template-areas: 'images add-cart' 'description description';
+        grid-template-areas: 'images details' '. add-cart';
+    }
+
+    @include breakpoint-at-least(x-large) {
+        gap: 0 50px;
+        grid-template-columns: max-content 2fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 'images details add-cart';
+        max-width: 1200px;
     }
 }
 
@@ -19,10 +27,26 @@
     grid-area: images;
 }
 
-.add-cart-container {
-    grid-area: add-cart;
+.details-container {
+    display: flex;
+    flex-direction: column;
+    grid-area: details;
+
+    @include breakpoint-at-least(x-large) {
+        max-width: 500px;
+    }
 }
 
-.description-container {
-    grid-area: description;
+.add-cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px 0;
+    grid-area: add-cart;
+    margin: 50px auto 0;
+    width: max-content;
+
+    @include breakpoint-at-least(x-large) {
+        margin: 0;
+    }
 }

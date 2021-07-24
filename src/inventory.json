@@ -3,7 +3,7 @@
         {
             "id": 0,
             "name": "T-Shirt",
-            "description": "Short sleeve.",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi. Mauris ornare mollis lacus, vitae commodo urna volutpat ac. Integer sit amet justo quis nibh mattis sodales at quis ante. In hac habitasse platea dictumst. Nunc imperdiet lacinia ante sed luctus.",
             "image": null,
             "price": 19.99,
             "stock": 7

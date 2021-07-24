@@ -1,18 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ItemImage from './ItemImage';
-
-const StockWarning = ({ stock, id }) => {
-    return (
-        <div id={`stock-warning-${id}`} className='item-stock-warning'>
-            {stock === 0
-                ? 'Sold Out'
-                : stock < 20
-                ? `Only ${stock} left`
-                : null}
-        </div>
-    );
-};
+import StockWarning from './StockWarning';
 
 export default function ItemCard({ item }) {
     const { id, name, image, price, stock } = item;

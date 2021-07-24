@@ -2,7 +2,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { CartDataContext } from '../../context/CartDataContext';
 import { sumCartCosts } from '../../scripts/utilities';
-import CartCard from '../Cards/CartCard';
+import CartCard from '../Cart/CartCard';
 
 export default function Cart() {
     const [cartItems, dispatch] = useContext(CartDataContext);

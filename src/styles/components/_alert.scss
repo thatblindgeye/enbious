@@ -1,0 +1,10 @@
+.cart-add-alert {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100%, 300px);
+    background: red;
+    padding: 10px;
+    z-index: 2;
+}

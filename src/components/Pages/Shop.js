@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import React, { useState, useEffect } from 'react';
-import ItemCard from '../Cards/ItemCard';
+import ItemCard from '../Items/ItemCard';
 import inventory from '../../inventory.json';
 
 export default function Shop() {
