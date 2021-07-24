@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { CartDataContext } from '../../context/CartDataContext';
+import ItemImage from '../Cards/ItemImage';
 import Quantity from '../Inputs/Quantity';
 import NoMatch from './NoMatch';
 import inventory from '../../inventory.json';
@@ -11,7 +12,7 @@ export default function Item() {
     const [quantity, setQuantity] = useState(1);
     const [addedToCart, setAddedToCart] = useState(false);
     const [, dispatch] = useContext(CartDataContext);
-    const { image } = item;
+    const { name, description, id, stock, price, image } = item;
 
     useEffect(() => {
         document.title = item ? `${item.name} | Enbious` : 'Enbious';
@@ -65,35 +66,35 @@ export default function Item() {
     return item ? (
         <div className='item-details-container'>
             <div className='item-images'>
-                <img
-                    className='item-main-image'
-                    src={
-                        image
-                            ? image
-                            : `${process.env.PUBLIC_URL}/public-assets/inventory-images/unavailable.png`
-                    }
-                    alt=''
-                />
+                <ItemImage imageClasses='item-main-image' image={image} />
             </div>
-            <div className='item-details'>
-                <h1>{item.name}</h1>
-                <div className='item-description'>{item.description}</div>
-                <Quantity
-                    decrementEvent={handleQuantityDecrement}
-                    changeEvent={handleQuantityChange}
-                    incrementEvent={handleQuantityIncrement}
-                    inputId={item.id}
-                    stock={item.stock}
-                    quantity={quantity}
-                />
-                <button className='add-cart-btn' onClick={handleCartAdd}>
-                    Add to Cart
-                </button>
-                {addedToCart ? (
-                    <div className='added-dialog'>
-                        Added {item.name} to Cart
-                    </div>
-                ) : null}
+            <div className='details-container'>
+                <h1>{name}</h1>
+                <div className='add-cart-container'>
+                    <Quantity
+                        decrementEvent={handleQuantityDecrement}
+                        changeEvent={handleQuantityChange}
+                        incrementEvent={handleQuantityIncrement}
+                        inputId={id}
+                        stock={stock}
+                        quantity={quantity}
+                    />
+                    <button
+                        className='add-cart-btn button-contained'
+                        onClick={handleCartAdd}
+                    >
+                        Add to Cart
+                    </button>
+                    {addedToCart ? (
+                        <div className='added-alert'>
+                            Added {item.name} to Cart
+                        </div>
+                    ) : null}
+                </div>
+            </div>
+            <div className='description-container'>
+                <h2 className='container-label'>Description</h2>
+                <div className='item-description'>{description}</div>
             </div>
         </div>
     ) : (

@@ -22,6 +22,10 @@ main {
     @include breakpoint-at-least(large) {
         padding: 50px 10vw;
     }
+
+    @include breakpoint-at-least(150em) {
+        padding: 50px 20vw;
+    }
 }
 
 /**

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ItemImage from './ItemImage';
 
 const StockWarning = ({ stock, id }) => {
     return (
@@ -24,15 +25,7 @@ export default function ItemCard({ item }) {
                     aria-hidden='true'
                     tabIndex='-1'
                 >
-                    <img
-                        className='preview-image'
-                        src={
-                            image
-                                ? image
-                                : `${process.env.PUBLIC_URL}/public-assets/inventory-images/unavailable.png`
-                        }
-                        alt=''
-                    />
+                    <ItemImage imageClasses='preview-image' image={image} />
                 </Link>
             </div>
             <div className='secondary-preview-container'>

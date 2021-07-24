@@ -6,6 +6,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     justify-items: center;
+    max-width: 1500px;
 
     @include breakpoint-at-least(small) {
         grid-template-columns: repeat(2, 1fr);
@@ -16,6 +17,8 @@
     }
 
     @include breakpoint-at-least(100em) {
+        gap: 50px;
         grid-template-columns: repeat(4, 1fr);
+        margin: auto;
     }
 }

@@ -1,14 +1,30 @@
-.item-details-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.item-images {
-    max-width: 100%;
-}
+@use '../abstracts/' as *;
 
 .item-main-image {
+    border-radius: 15px;
     height: auto;
     max-width: 400px;
+    width: 100%;
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.add-cart-container {
+    display: flex;
+    gap: 0 20px;
+}
+
+.description-container {
+    margin-top: 75px;
+}
+
+.container-label {
+    border-bottom: 1px solid var(--color-border-divider);
+    margin-bottom: 5px;
+    padding-bottom: 5px;
     width: 100%;
 }

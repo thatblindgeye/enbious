@@ -1,0 +1,28 @@
+@use '../abstracts/' as *;
+
+.item-details-container {
+    display: grid;
+    gap: 20px 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: 'images' 'add-cart' 'description';
+
+    @include breakpoint-at-least(medium) {
+        gap: 0 50px;
+        grid-template-columns: max-content 1fr;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas: 'images add-cart' 'description description';
+    }
+}
+
+.item-images {
+    grid-area: images;
+}
+
+.add-cart-container {
+    grid-area: add-cart;
+}
+
+.description-container {
+    grid-area: description;
+}
