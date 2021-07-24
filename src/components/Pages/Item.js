@@ -10,9 +10,11 @@ export default function Item() {
     const params = useParams();
     const [item, setItem] = useState({});
     const [quantity, setQuantity] = useState(1);
-    const [addedToCart, setAddedToCart] = useState(false);
+    const [addedToCart, setAddedToCart] = useState({
+        status: false,
+        message: '',
+    });
     const [cartItems, dispatch] = useContext(CartDataContext);
-    const { name, description, id, stock, price, image } = item;
 
     useEffect(() => {
         document.title = item ? `${item.name} | Enbious` : 'Enbious';
@@ -22,32 +24,47 @@ export default function Item() {
         setItem(inventory.clothing[params.itemId]);
     }, [params]);
 
+    // Remove the alert that appears after clicking "add to cart"
     useEffect(() => {
-        const addedDialog = setTimeout(() => {
+        const addToCartAlert = setTimeout(() => {
             if (addedToCart) {
-                setAddedToCart(false);
+                setAddedToCart({
+                    status: false,
+                    message: '',
+                });
             }
         }, 5000);
 
         return () => {
-            clearTimeout(addedDialog);
+            clearTimeout(addToCartAlert);
         };
     }, [addedToCart]);
 
-    const compareQuantityStock = () => {
+    const checkQuantityToStock = () => {
         const itemInCart = cartItems.filter(
             (cartItem) => cartItem.id === item.id
         );
 
+        // Check whether amount of item in cart + quantity input exceeds stock
         if (
             itemInCart.length &&
-            itemInCart[0].quantity === itemInCart[0].stock
+            itemInCart[0].quantity + quantity > itemInCart[0].stock
         ) {
-            console.log(itemInCart);
+            // Return false to prevent handleCartAdd() from adding to cart
+            setAddedToCart({
+                status: true,
+                message: `Unable to add ${item.name} to cart. The requested amount in addition to any in your cart exceed the ${item.stock} available.`,
+            });
             return false;
+        } else {
+            setAddedToCart({
+                status: true,
+                message: `Added ${quantity} ${
+                    item.name + (quantity > 1 ? 's' : '')
+                } to cart!`,
+            });
+            return true;
         }
-
-        return true;
     };
 
     const handleQuantityChange = (e) => {
@@ -67,8 +84,7 @@ export default function Item() {
     };
 
     const handleCartAdd = () => {
-        if (!compareQuantityStock()) return;
-        setAddedToCart(true);
+        if (!checkQuantityToStock()) return;
 
         return dispatch({
             type: 'ADD_ITEM',
@@ -82,36 +98,37 @@ export default function Item() {
     return item ? (
         <div className='item-details-container'>
             <div className='item-images'>
-                <ItemImage imageClasses='item-main-image' image={image} />
+                <ItemImage imageClasses='item-main-image' image={item.image} />
             </div>
             <div className='details-container'>
-                <h1>{name}</h1>
-                <div>{price}</div>
+                <h1>{item.name}</h1>
+                <div>{item.price}</div>
                 <div className='add-cart-container'>
                     <Quantity
                         decrementEvent={handleQuantityDecrement}
                         changeEvent={handleQuantityChange}
                         incrementEvent={handleQuantityIncrement}
-                        inputId={id}
-                        stock={stock}
+                        inputId={item.id}
+                        stock={item.stock}
                         quantity={quantity}
-                        disabled={!compareQuantityStock()}
                     />
                     <button
                         className='add-cart-btn button-contained'
                         onClick={handleCartAdd}
-                        disabled={!stock || !compareQuantityStock()}
+                        disabled={!item.stock}
                     >
                         Add to Cart
                     </button>
-                    {addedToCart ? (
-                        <div className='added-alert'>Added {name} to cart!</div>
+                    {addedToCart.status ? (
+                        <div className='cart-add-alert'>
+                            {addedToCart.message}
+                        </div>
                     ) : null}
                 </div>
             </div>
             <div className='description-container'>
                 <h2 className='container-label'>Description</h2>
-                <div className='item-description'>{description}</div>
+                <div className='item-description'>{item.description}</div>
             </div>
         </div>
     ) : (
