@@ -13,7 +13,7 @@ export default function Quantity({
     return (
         <div className='inputs-container'>
             <button
-                className='qty-decrement-button qty-button button-quantity'
+                className='qty-decrement-button button-quantity'
                 onClick={decrementEvent}
                 disabled={quantity === 1 || !stock}
                 aria-label='decrease quantity'
@@ -31,7 +31,7 @@ export default function Quantity({
                 disabled={!stock}
             />
             <button
-                className='qty-increment-button qty-button button-quantity'
+                className='qty-increment-button button-quantity'
                 onClick={incrementEvent}
                 disabled={quantity === stock || !stock}
                 aria-label='increase quantity'

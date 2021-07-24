@@ -6,6 +6,7 @@ body {
 
 .button-contained {
     color: var(--color-text-contained-button);
+    font-size: 1.125rem;
 }
 
 .button-delete {
@@ -13,6 +14,10 @@ body {
 }
 
 .button-outline {
+    color: var(--color-text-primary);
+}
+
+.button-quantity {
     color: var(--color-text-primary);
 }
 
@@ -55,11 +60,7 @@ body {
 }
 
 .quantity-input {
+    color: var(--color-text-primary);
     font-size: 1.5rem;
     text-align: center;
-}
-
-.qty-button {
-    color: var(--color-text-primary);
-    font-size: 2rem;
 }

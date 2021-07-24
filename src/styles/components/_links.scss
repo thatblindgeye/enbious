@@ -1,29 +1,19 @@
 @use '../abstracts/' as *;
 
-.link {
-    color: var(--color-text-primary);
-
-    &:focus {
-        outline: 2px dotted var(--color-border-primary);
-        outline-offset: 4px;
-        text-decoration: none;
-    }
+%page-links {
+    display: flex;
+    padding: 10px;
+    transition: background-color linear 200ms;
+    width: max-content;
 
     &:hover {
-        text-decoration: none;
+        background-color: var(--color-bg-nav-hover);
     }
 }
 
-.skip-link {
-    color: var(--color-text-primary);
-    border-bottom: 1px solid transparent;
-    margin-right: 25px;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-        border-bottom: 2px dotted var(--color-border-primary);
-    }
+.cart-link {
+    @extend %page-links;
+    align-items: center;
 }
 
 .github-link {
@@ -47,13 +37,30 @@
     }
 }
 
-.nav-link {
-    border-radius: 10px;
+.item-link {
     color: var(--color-text-primary);
-    text-decoration: none;
 
     &:focus {
         outline: 2px dotted var(--color-border-primary);
+        outline-offset: 2px;
+    }
+
+    &:hover {
+        color: var(--color-link-hover);
+    }
+}
+
+.link {
+    color: var(--color-text-primary);
+
+    &:focus {
+        outline: 2px dotted var(--color-border-primary);
+        outline-offset: 4px;
+        text-decoration: none;
+    }
+
+    &:hover {
+        text-decoration: none;
     }
 }
 
@@ -69,32 +76,28 @@
     }
 }
 
-.shop-link,
-.cart-link {
-    display: flex;
-    padding: 10px;
-    transition: background-color linear 200ms;
-    width: max-content;
-
-    &:hover {
-        background-color: var(--color-bg-nav-hover);
-    }
-}
-
-.cart-link {
-    display: flex;
-    align-items: center;
-}
-
-.item-link {
+.nav-link {
+    border-radius: 10px;
     color: var(--color-text-primary);
+    text-decoration: none;
 
     &:focus {
-        outline: 1px dotted var(--color-border-primary);
-        outline-offset: 2px;
+        outline: 2px dotted var(--color-border-primary);
     }
+}
 
-    &:hover {
-        color: var(--color-link-hover);
+.skip-link {
+    color: var(--color-text-primary);
+    border-bottom: 1px solid transparent;
+    margin-right: 25px;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        border-bottom: 2px dotted var(--color-border-primary);
     }
+}
+
+.shop-link {
+    @extend %page-links;
 }
