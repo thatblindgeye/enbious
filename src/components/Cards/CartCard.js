@@ -3,7 +3,7 @@ import { CartDataContext } from '../../context/CartDataContext';
 import Quantity from '../Inputs/Quantity';
 import { sumItemCost } from '../../scripts/utilities';
 
-export default function CartItem({ cartItem, itemCost }) {
+export default function CartCard({ cartItem, itemCost }) {
     const [, dispatch] = useContext(CartDataContext);
     const { name, quantity, stock } = cartItem;
 
@@ -18,7 +18,6 @@ export default function CartItem({ cartItem, itemCost }) {
     };
 
     const handleQuantityIncrement = () => {
-        if (quantity === stock) return;
         return dispatch({
             type: 'UPDATE_QUANTITY',
             payload: {
@@ -29,7 +28,6 @@ export default function CartItem({ cartItem, itemCost }) {
     };
 
     const handleQuantityDecrement = () => {
-        if (quantity === 1) return;
         return dispatch({
             type: 'UPDATE_QUANTITY',
             payload: {

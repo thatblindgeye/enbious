@@ -11,7 +11,12 @@ export default function Quantity({
     return (
         <div className='quantity-container'>
             <label htmlFor={`quantity-${inputId}`}>Quantity</label>
-            <button onClick={decrementEvent}>-</button>
+            <button
+                onClick={decrementEvent}
+                disabled={quantity === 1 || !stock}
+            >
+                -
+            </button>
             <input
                 id={`quantity-${inputId}`}
                 type='number'
@@ -19,8 +24,14 @@ export default function Quantity({
                 max={stock}
                 value={quantity}
                 onChange={changeEvent}
+                disabled={!stock}
             />
-            <button onClick={incrementEvent}>+</button>
+            <button
+                onClick={incrementEvent}
+                disabled={quantity === stock || !stock}
+            >
+                +
+            </button>
         </div>
     );
 }

@@ -11,7 +11,7 @@ export default function Item() {
     const [item, setItem] = useState({});
     const [quantity, setQuantity] = useState(1);
     const [addedToCart, setAddedToCart] = useState(false);
-    const [, dispatch] = useContext(CartDataContext);
+    const [cartItems, dispatch] = useContext(CartDataContext);
     const { name, description, id, stock, price, image } = item;
 
     useEffect(() => {
@@ -34,26 +34,42 @@ export default function Item() {
         };
     }, [addedToCart]);
 
+    const compareQuantityStock = () => {
+        const itemInCart = cartItems.filter(
+            (cartItem) => cartItem.id === item.id
+        );
+
+        if (
+            itemInCart.length &&
+            itemInCart[0].quantity === itemInCart[0].stock
+        ) {
+            console.log(itemInCart);
+            return false;
+        }
+
+        return true;
+    };
+
     const handleQuantityChange = (e) => {
         setQuantity(Number(e.target.value));
     };
 
     const handleQuantityIncrement = (e) => {
-        if (quantity === item.stock) return;
         setQuantity((prevState) => {
             return prevState + 1;
         });
     };
 
     const handleQuantityDecrement = (e) => {
-        if (quantity === 1) return;
         setQuantity((prevState) => {
             return prevState - 1;
         });
     };
 
     const handleCartAdd = () => {
+        if (!compareQuantityStock()) return;
         setAddedToCart(true);
+
         return dispatch({
             type: 'ADD_ITEM',
             payload: {
@@ -70,6 +86,7 @@ export default function Item() {
             </div>
             <div className='details-container'>
                 <h1>{name}</h1>
+                <div>{price}</div>
                 <div className='add-cart-container'>
                     <Quantity
                         decrementEvent={handleQuantityDecrement}
@@ -78,17 +95,17 @@ export default function Item() {
                         inputId={id}
                         stock={stock}
                         quantity={quantity}
+                        disabled={!compareQuantityStock()}
                     />
                     <button
                         className='add-cart-btn button-contained'
                         onClick={handleCartAdd}
+                        disabled={!stock || !compareQuantityStock()}
                     >
                         Add to Cart
                     </button>
                     {addedToCart ? (
-                        <div className='added-alert'>
-                            Added {item.name} to Cart
-                        </div>
+                        <div className='added-alert'>Added {name} to cart!</div>
                     ) : null}
                 </div>
             </div>

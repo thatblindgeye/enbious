@@ -68,6 +68,11 @@ label,
 [role='switch'],
 [type='date'] {
     @extend %clickable;
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: $disabled;
+    }
 }
 
 input[aria-disabled='true'],

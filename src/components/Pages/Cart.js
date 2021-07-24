@@ -2,7 +2,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { CartDataContext } from '../../context/CartDataContext';
 import { sumCartCosts } from '../../scripts/utilities';
-import CartItem from '../Cards/CartCard';
+import CartCard from '../Cards/CartCard';
 
 export default function Cart() {
     const [cartItems, dispatch] = useContext(CartDataContext);
@@ -29,7 +29,7 @@ export default function Cart() {
                         {cartItems.map((cartItem, cartIndex) => {
                             return (
                                 <li key={cartIndex}>
-                                    <CartItem cartItem={cartItem} />
+                                    <CartCard cartItem={cartItem} />
                                 </li>
                             );
                         })}
