@@ -1,4 +1,6 @@
 import React from 'react';
+import { ReactComponent as IncrementIcon } from '../../assets/images/icons/increment.svg';
+import { ReactComponent as DecrementIcon } from '../../assets/images/icons/decrement.svg';
 
 export default function Quantity({
     changeEvent,
@@ -11,12 +13,12 @@ export default function Quantity({
     return (
         <div className='inputs-container'>
             <button
-                className='qty-decrement-button qty-button'
+                className='qty-decrement-button qty-button button-quantity'
                 onClick={decrementEvent}
                 disabled={quantity === 1 || !stock}
                 aria-label='decrease quantity'
             >
-                -
+                <DecrementIcon className='button-icon' />
             </button>
             <input
                 id={`quantity-${itemId}`}
@@ -29,12 +31,12 @@ export default function Quantity({
                 disabled={!stock}
             />
             <button
-                className='qty-increment-button qty-button'
+                className='qty-increment-button qty-button button-quantity'
                 onClick={incrementEvent}
                 disabled={quantity === stock || !stock}
                 aria-label='increase quantity'
             >
-                +
+                <IncrementIcon className='button-icon' />
             </button>
         </div>
     );

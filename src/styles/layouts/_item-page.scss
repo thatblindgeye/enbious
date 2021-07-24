@@ -44,7 +44,7 @@
     gap: 20px 0;
     grid-area: add-cart;
     margin: 50px auto 0;
-    width: max-content;
+    width: 100%;
 
     @include breakpoint-at-least(x-large) {
         margin: 0;

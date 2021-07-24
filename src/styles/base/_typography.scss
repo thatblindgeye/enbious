@@ -4,13 +4,24 @@ body {
     font-family: $base-fonts;
 }
 
-.logo-link {
-    font-family: $brand-fonts;
-    font-size: clamp(1rem, 10vw, 5rem);
+.button-contained {
+    color: var(--color-text-contained-button);
 }
 
-.nav-link {
-    font-size: clamp(1rem, 2vw, 1.5rem);
+.button-delete {
+    color: var(--color-button-delete);
+}
+
+.button-outline {
+    color: var(--color-text-primary);
+}
+
+.button-text {
+    color: var(--color-button-text);
+}
+
+.cart-item-name {
+    font-size: 1.125rem;
 }
 
 .image-card-text {
@@ -32,6 +43,15 @@ body {
 .item-stock-warning {
     color: var(--color-text-item-warning);
     font-size: 0.9rem;
+}
+
+.logo-link {
+    font-family: $brand-fonts;
+    font-size: clamp(1rem, 10vw, 5rem);
+}
+
+.nav-link {
+    font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 .quantity-input {

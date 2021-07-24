@@ -1,20 +1,17 @@
 @use '../abstracts/mixins' as *;
 
 .button {
-    --base-size: 1.25rem;
-
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1rem;
 }
 
 .button-contained {
     @extend .button;
     background-color: var(--color-button-contained);
     border: 2px solid transparent;
-    color: var(--color-text-contained-button);
+    padding: 0.75rem 1rem;
 
     &:hover,
     &:focus {
@@ -26,11 +23,29 @@
     }
 }
 
+.button-delete {
+    @extend .button;
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition: border 200ms linear;
+
+    &:focus,
+    &:hover {
+        border: 1px solid var(--color-button-delete-border);
+    }
+}
+
+.button-icon {
+    --base-size: 1.25rem;
+
+    height: var(--base-size);
+    width: var(--base-size);
+}
+
 .button-outline {
     @extend .button;
     background-color: transparent;
     border: 1px solid var(--color-button-outline);
-    color: var(--color-text-primary);
     transition: transform 200ms linear, border 200ms linear;
 
     &:hover,
@@ -43,35 +58,27 @@
     }
 }
 
+.button-quantity {
+    @extend .button;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 8px 4px;
+    width: 25%;
+
+    &:focus {
+        border: 1px solid var(--color-button-text-border);
+    }
+}
+
 .button-text {
     @extend .button;
     background-color: transparent;
     border: 1px solid transparent;
-    color: var(--color-button-text);
-    text-transform: uppercase;
+    padding: 0.75rem 0.5rem;
     transition: border 200ms linear;
 
     &:hover,
     &:focus {
         border: 1px solid var(--color-button-text-border);
     }
-}
-
-.button-delete {
-    @extend .button;
-    background-color: transparent;
-    border: 1px solid transparent;
-    color: var(--color-button-delete);
-    transition: border 200ms linear;
-
-    &:focus,
-    &:hover {
-        border: 1px solid var(--color-button-delete-border);
-    }
-}
-
-.button-icon {
-    height: var(--base-size);
-    width: var(--base-size);
-    margin-right: 10px;
 }
