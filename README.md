@@ -2,9 +2,14 @@
 
 ## Description
 
-A shopping cart app created using React routes.
+An accessible shopping cart app created using React routes.
 
 ### Features
+
+-   The main content area is marked as an aria-live region, allowing screen readers to announce when a user visits a new page.
+-   Each item in the Shop page is routed to its own details page, where you can add it to your shopping cart.
+-   Items show a warning when there is low stock or the item is sold out.
+-   A quantity-to-stock check occurs when attempting to add low-stock items to your cart, preventing you from adding any amount that exceeds the current stock.
 
 ### How-To
 
