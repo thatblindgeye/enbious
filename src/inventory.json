@@ -2,50 +2,66 @@
     "clothing": [
         {
             "id": 0,
-            "name": "100% Pure Cotton T-Shirt",
+            "name": "T-Shirt",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget.",
-            "image": null,
+            "image": "/public-assets/inventory-images/pexels-cottonbro-4429288.jpg",
             "price": 19.99,
             "stock": 17
         },
         {
             "id": 1,
-            "name": "Sweater",
+            "name": "Leather Jacket",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi. Mauris ornare mollis lacus, vitae commodo urna volutpat ac.",
-            "image": null,
-            "price": 29.99,
+            "image": "/public-assets/inventory-images/sunset-on-the-beach-3506982_640.jpg",
+            "price": 89.99,
             "stock": 0
         },
         {
             "id": 2,
-            "name": "Dress",
+            "name": "Polka Dot Dress",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi. Mauris ornare mollis lacus, vitae commodo urna volutpat ac.",
-            "image": null,
+            "image": "/public-assets/inventory-images/red-bicycle-3498602_640.jpg",
             "price": 49.99,
             "stock": 51
         },
         {
             "id": 3,
-            "name": "Pants",
+            "name": "Skinny Jeans",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi. Mauris ornare mollis lacus.",
-            "image": null,
+            "image": "/public-assets/inventory-images/tall-jeans-1725031_1280.jpg",
             "price": 39.99,
             "stock": 92
         },
         {
             "id": 4,
-            "name": "Shoes",
+            "name": "Long Sleeve Denim Button Up",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula, efficitur sed imperdiet eget, feugiat eget eros. Etiam tristique iaculis eros id faucibus. Duis et eros nibh. Nulla facilisi.",
-            "image": null,
+            "image": "/public-assets/inventory-images/beautiful-women-1806280_640.jpg",
             "price": 29.99,
             "stock": 169
         },
         {
             "id": 5,
-            "name": "Socks",
+            "name": "Pull-Over Hoodie with Middle Pocket",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula.",
-            "image": null,
-            "price": 9.99,
+            "image": "/public-assets/inventory-images/pexels-marlene-leppanen-1183266.jpg",
+            "price": 29.99,
+            "stock": 22
+        },
+        {
+            "id": 6,
+            "name": "Full Zip Jacket",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula.",
+            "image": "/public-assets/inventory-images/outdoors-3034046_640.jpg",
+            "price": 29.99,
+            "stock": 22
+        },
+        {
+            "id": 7,
+            "name": "Overcoat",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eleifend augue non velit finibus placerat. Fusce nisl ligula.",
+            "image": "/public-assets/inventory-images/pexels-ono-kosuki-6000178.jpg",
+            "price": 79.99,
             "stock": 22
         }
     ]

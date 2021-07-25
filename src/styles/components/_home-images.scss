@@ -10,7 +10,7 @@
     position: relative;
     max-width: 600px;
 
-    &:nth-of-type(1) {
+    &:nth-child(1) {
         .image-mask {
             background-color: yellow;
             top: 0;
@@ -18,7 +18,7 @@
         }
     }
 
-    &:nth-of-type(3) {
+    &:nth-child(3) {
         .image-mask {
             background-color: white;
             top: 25%;
@@ -26,7 +26,7 @@
         }
     }
 
-    &:nth-of-type(5) {
+    &:nth-child(5) {
         .image-mask {
             background-color: purple;
             top: 50%;
@@ -34,7 +34,7 @@
         }
     }
 
-    &:nth-of-type(7) {
+    &:nth-child(7) {
         .image-mask {
             background-color: black;
             top: 75%;

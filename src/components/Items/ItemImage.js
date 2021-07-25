@@ -6,7 +6,7 @@ export default function ItemImage({ image, imageClasses }) {
             className={`${imageClasses} elevation-04dp`}
             src={
                 image
-                    ? image
+                    ? `${process.env.PUBLIC_URL}${image}`
                     : `${process.env.PUBLIC_URL}/public-assets/inventory-images/unavailable.png`
             }
             alt=''
