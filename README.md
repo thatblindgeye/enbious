@@ -11,9 +11,11 @@ An accessible shopping cart app created using React routes.
 -   Items show a warning when there is low stock or the item is sold out.
 -   A quantity-to-stock check occurs when attempting to add low-stock items to your cart, preventing you from adding any amount that exceeds the current stock.
 
-### How-To
-
 ## Issues During Creation/Misc. Notes
+
+The most difficult part would definitely have to be handling the cart state. It started out a bit rough with trying to figure out how to go about it, but I feel I slowly started understanding the useReducer hook and how powerful it can be when you need it.
+
+That said, using useReducer, as well as the useContext and useRef hooks, was incredibly interesting. As the final project in the React section of [The Odin Project](https://www.theodinproject.com), though certainly not the last thing I'll ever make in React, this is still my favorite course material thus far.
 
 ## Photo Credits
 
