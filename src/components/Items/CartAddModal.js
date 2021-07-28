@@ -12,9 +12,13 @@ export default function CartAddModal({ attemptCardAdd, closeModal }) {
         <div className='modal-mask' onClick={closeModal}>
             <div
                 className='modal-container elevation-08dp'
+                role='dialog'
+                aria-labelledby='modal-title'
                 onClick={(e) => e.stopPropagation()}
             >
-                <h3 className='modal-message'>{attemptCardAdd.message}</h3>
+                <h3 id='modal-title' className='modal-message'>
+                    {attemptCardAdd.message}
+                </h3>
                 <div className='modal-actions'>
                     <Link
                         to='/cart'

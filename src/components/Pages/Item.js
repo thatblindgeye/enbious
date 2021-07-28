@@ -140,7 +140,7 @@ export default function Item() {
             <div className='details-container'>
                 <h1>{item.name}</h1>
                 <StockWarning id={item.id} stock={item.stock} />
-                <div>{item.price}</div>
+                <div>${item.price}</div>
                 <div className='description-container'>
                     <h2 className='container-label'>Description</h2>
                     <div className='item-description'>{item.description}</div>

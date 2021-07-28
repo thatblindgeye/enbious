@@ -22,7 +22,7 @@ export default function ItemCard({ item }) {
                     to={`/shop/${id}`}
                     className='item-link'
                     aria-describedby={`price-${id} ${
-                        stock < 10 ? `stock-warning-${id}` : null
+                        stock < 20 ? `stock-warning-${id}` : null
                     }`}
                 >
                     {name}
