@@ -47,6 +47,7 @@
     @extend .button;
     background-color: transparent;
     border: 1px solid var(--color-button-outline);
+    padding: 10px;
     transition: transform 200ms linear, border 200ms linear;
 
     &:hover,

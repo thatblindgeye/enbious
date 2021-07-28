@@ -22,14 +22,14 @@ header {
 
 main {
     min-height: 100vh;
-    padding: 50px 25px;
+    padding: 100px 25px;
 
     @include breakpoint-at-least(large) {
-        padding: 50px 10vw;
+        padding: 100px 10vw;
     }
 
     @include breakpoint-at-least(150em) {
-        padding: 50px 20vw;
+        padding: 100px 20vw;
     }
 }
 
@@ -55,10 +55,6 @@ h4,
 h5,
 h6 {
     margin: 0;
-}
-
-a {
-    text-decoration: none;
 }
 
 %clickable {

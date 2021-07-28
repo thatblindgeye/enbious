@@ -4,6 +4,10 @@ body {
     font-family: $base-fonts;
 }
 
+.button {
+    font-size: 1.125rem;
+}
+
 .button-contained {
     color: var(--color-text-contained-button);
     font-size: 1.125rem;
@@ -15,6 +19,7 @@ body {
 
 .button-outline {
     color: var(--color-text-primary);
+    font-size: 1.125rem;
 }
 
 .button-quantity {
@@ -23,6 +28,7 @@ body {
 
 .button-text {
     color: var(--color-button-text);
+    font-size: 1.125rem;
 }
 
 .cart-item-name {

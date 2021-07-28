@@ -7,9 +7,11 @@
 
 $light: (
     color-bg-accessibility-bar: color($yellow, 200),
+    color-bg-alert: mix(color($yellow, 200), white, 20%),
     color-bg-base: color($neutral, 50),
     color-bg-footer: color($yellow, 100),
     color-bg-header: color($yellow, 200),
+    color-bg-modal: color($neutral, 900, 0.5),
     color-bg-nav-hover: color($yellow, 700),
     color-border-btn-focus: color($yellow, 900, 0.75),
     color-border-divider: color($purple, 800, 0.5),

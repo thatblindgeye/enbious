@@ -7,9 +7,11 @@
 
 $dark: (
     color-bg-accessibility-bar: branded-dark-surface($purple, 200, 04dp),
+    color-bg-alert: branded-dark-surface($purple, 400, 08dp),
     color-bg-base: branded-dark-surface($purple, 400, 00dp),
     color-bg-footer: branded-dark-surface($purple, 900, 04dp),
     color-bg-header: branded-dark-surface($purple, 200, 04dp),
+    color-bg-modal: color($neutral, 900, 0.5),
     color-bg-nav-hover: color($purple, 700),
     color-border-btn-focus: color($purple, 100, 0.5),
     color-border-divider: color($yellow, 100, 0.25),

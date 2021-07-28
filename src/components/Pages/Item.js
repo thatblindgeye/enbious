@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { CartDataContext } from '../../context/CartDataContext';
 import ItemImage from '../Items/ItemImage';
@@ -6,16 +6,18 @@ import Quantity from '../Inputs/Quantity';
 import NoMatch from './NoMatch';
 import inventory from '../../inventory.json';
 import StockWarning from '../Items/StockWarning';
+import CartAddModal from '../Items/CartAddModal';
 
 export default function Item() {
     const params = useParams();
     const [item, setItem] = useState({});
     const [quantity, setQuantity] = useState(1);
-    const [addedToCart, setAddedToCart] = useState({
+    const [attemptCardAdd, setattemptCardAdd] = useState({
         status: false,
         message: '',
     });
     const [cartItems, dispatch] = useContext(CartDataContext);
+    const lastButtonRef = useRef();
 
     useEffect(() => {
         document.title = item ? `${item.name} | Enbious` : 'Enbious';
@@ -25,21 +27,50 @@ export default function Item() {
         setItem(inventory.clothing[params.itemId]);
     }, [params]);
 
-    // Remove the alert that appears after clicking "add to cart"
     useEffect(() => {
-        const addToCartAlert = setTimeout(() => {
-            if (addedToCart) {
-                setAddedToCart({
-                    status: false,
-                    message: '',
-                });
-            }
-        }, 5000);
+        if (!attemptCardAdd.status) {
+            lastButtonRef.current.focus();
+        }
+    }, [attemptCardAdd]);
 
-        return () => {
-            clearTimeout(addToCartAlert);
-        };
-    }, [addedToCart]);
+    // Scroll back to top of page when visiting an item's page
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, [item]);
+
+    // Remove keyboard navigation of non-modal items when modal is open.
+    // Otherwise add back the keyboard navigation of non-modal items.
+    useEffect(() => {
+        const modalItems = Array.from(
+            document.querySelectorAll('.modal-actions > *')
+        );
+        const tabbableItems = Array.from(
+            document.querySelectorAll('a, input, button, [role="checkbox"]')
+        );
+        const nonModalItems = tabbableItems.filter(
+            (item) => modalItems.indexOf(item) === -1
+        );
+
+        if (attemptCardAdd.status) {
+            nonModalItems.forEach((item) =>
+                item.setAttribute('tabIndex', '-1')
+            );
+        } else {
+            console.log('closed');
+            nonModalItems.forEach((item) =>
+                item.removeAttribute('tabIndex', '-1')
+            );
+        }
+    }, [attemptCardAdd]);
+
+    const clearAttemptCardAdd = (e) => {
+        setattemptCardAdd({
+            status: false,
+            message: '',
+        });
+    };
 
     const checkQuantityToStock = () => {
         const itemInCart = cartItems.filter(
@@ -47,9 +78,9 @@ export default function Item() {
         );
 
         /*
-            Check whether item exists in cart
-            Then check whether quantity in cart + quantity input exceeds stock
-            Otherwise check if quantity input exceeds stock
+            Check whether item exists in cart.
+            Then check whether quantity in cart + quantity input exceeds stock.
+            Otherwise check if quantity input exceeds stock.
         */
         if (
             (itemInCart.length &&
@@ -57,14 +88,14 @@ export default function Item() {
             quantity > item.stock
         ) {
             // Return false to prevent handleCartAdd() from adding to cart
-            setAddedToCart({
+            setattemptCardAdd({
                 status: true,
                 message: `Unable to add ${item.name} to cart. The requested amount in addition to any in your cart exceed the ${item.stock} available.`,
             });
             return false;
         }
 
-        setAddedToCart({
+        setattemptCardAdd({
             status: true,
             message: `Added ${quantity} ${
                 item.name + (quantity > 1 ? 's' : '')
@@ -132,16 +163,19 @@ export default function Item() {
                         quantity={quantity}
                     />
                 </div>
-
                 <button
                     className='add-cart-btn button-contained elevation-04dp'
                     onClick={handleCartAdd}
                     disabled={!item.stock}
+                    ref={lastButtonRef}
                 >
                     Add to Cart
                 </button>
-                {addedToCart.status ? (
-                    <div className='cart-add-alert'>{addedToCart.message}</div>
+                {attemptCardAdd.status ? (
+                    <CartAddModal
+                        attemptCardAdd={attemptCardAdd}
+                        closeModal={clearAttemptCardAdd}
+                    />
                 ) : null}
             </div>
         </div>

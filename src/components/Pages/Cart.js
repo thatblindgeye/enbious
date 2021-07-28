@@ -13,6 +13,13 @@ export default function Cart() {
         document.title = 'Shopping Cart | Enbious';
     }, []);
 
+    // Scroll back to top of page after checking out
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, [isCheckedOut]);
+
     const handleCheckOut = () => {
         setIsCheckedOut(true);
 

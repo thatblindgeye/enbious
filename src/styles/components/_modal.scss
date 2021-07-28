@@ -1,0 +1,31 @@
+.modal-mask {
+    background-color: var(--color-bg-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.modal-container {
+    background-color: var(--color-bg-alert);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    justify-content: space-between;
+    min-height: 200px;
+    padding: 20px;
+    width: min(90%, 400px);
+}
+
+.modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-evenly;
+}
